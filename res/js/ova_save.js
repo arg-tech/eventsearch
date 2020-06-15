@@ -380,7 +380,7 @@ function save2db() {
 
 
 
-    return false;
+    return jstring;
 }
 
 function add2corpus(addnsID) {
