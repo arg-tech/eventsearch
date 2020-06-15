@@ -340,16 +340,12 @@ function loadfromdb(nodeSetID) {
 }
 
 function save2db() {
-    $('#save_modal').show();
-    $('#m_load').show();
-    $('#m_content').hide();
 
     var json = {}
     var jnodes = [];
     var jedges = [];
     var jschemefulfillments = [];
     var jlocutions = [];
-    var jparticipants = [];
 
     for (var i = 0, l = nodes.length; i < l; i++) {
         var jnode = {};
@@ -364,13 +360,6 @@ function save2db() {
             jschemefulfillment['schemeID'] = nodes[i].scheme;
             jschemefulfillments.push(jschemefulfillment);
         }
-
-        if(nodes[i].participantID != 0){
-            var jlocution = {};
-            jlocution['nodeID'] = nodes[i].id;
-            jlocution['personID'] = nodes[i].participantID;
-            jlocutions.push(jlocution);
-        }
     }
 
     for (var i = 0, l = edges.length; i < l; i++) {
@@ -380,92 +369,16 @@ function save2db() {
         jedges.push(jedge);
     }
 
-    for (var i = 0, l = participants.length; i < l; i++) {
-        var jparticipant = {};
-        jparticipant['participantID'] = participants[i].id;
-        jparticipant['firstname'] = participants[i].firstname;
-        jparticipant['surname'] = participants[i].surname;
-        jparticipants.push(jparticipant);
-    }
 
     json['nodes'] = jnodes;
     json['edges'] = jedges;
     json['schemefulfillments'] = jschemefulfillments;
-    json['participants'] = jparticipants;
     json['locutions'] = jlocutions;
 
     jstring = JSON.stringify(json);
     console.log(jstring);
 
-    $.post("ul/index.php", { data: JSON.stringify(json) },
-        function(reply) {
-            console.log(reply);
-            var rs = reply.split(" ");
-            var nsID = rs[rs.length-1]
-            var dbURL = window.DBurl+"/argview/"+nsID;
-            var dbLink = "<a href='"+dbURL+"' target='_blank'>"+dbURL+"</a>";
-            $.getJSON( "helpers/corporalist.php", function(data) {
-                $('#m_load').hide();
-                $('#m_content').html("<p style='font-weight:700'>Uploaded to database:</p>"+dbLink+"<br /><p style='font-weight:700'>Add to corpus:</p>");
 
-                var s = $("<select id=\"s_corpus\" name=\"s_corpus\" />");
-                $.each(data.corpora, function(idx, c) {
-                    if(c.locked == 0){
-                        title = c.title.replace(/&amp;#/g, "&#");
-			$("<option />", {value: c.corpusID, html: title}).appendTo(s);
-                    }
-                });
-                s.appendTo('#m_content');
-
-                $('<p style="text-align:right"><input type="button" value="Add to corpus" onClick="add2corpus('+nsID+');" /></p>').appendTo('#m_content');
-
-                if("aifdb" in getUrlVars()){
-                    olddbid = getUrlVars()["aifdb"];
-                    $.getJSON( "helpers/incorpora.php?nodesetID="+olddbid, function(crpdata) {
-                        var ncrp = 0;
-                        $.each(crpdata.corpora, function(idx, c) {
-                            if(ncrp == 0){
-                                $('<p style="font-weight:700">Replace in existing corpora:</p>').appendTo('#m_content');
-                            }
-                            ncrp = ncrp+1;
-                            title = c.title.replace(/&amp;#/g, "&#");
-                            $('<p><input type="checkbox" class="rccb" name="add'+c.id+'" value="'+c.id+'" checked="checked"> '+title+'</p>').appendTo('#m_content');
-                        });
-                        if(ncrp > 0){
-                            $('<p style="text-align:right"><input type="button" value="Replace in corpora" onClick="rpl2corpus('+nsID+','+olddbid+');" /></p>').appendTo('#m_content');
-                        }
-                        $('#m_content').show();
-                    });
-                }else{
-                    $('#m_content').show();
-                }
-
-                $('#m_content').show();
-            });
-
-            var url = getUrlVars()["url"];
-            if(url == 'local'){
-                txt = getAllText();
-            }else{
-                txt = url;
-            }
-            var txtdata = {
-                "txt" : txt,
-            };
-            $.post("helpers/textpost.php?nsID="+nsID, txtdata,
-                function(reply) {
-                    return 0;
-                }
-            );
-            $.post("db/ul.php?ns="+nsID, { data: genjson() },
-                function(reply) {
-                    return 0;
-                }
-            );
-        }
-    );
-
-    window.unsaved = false;
 
     return false;
 }

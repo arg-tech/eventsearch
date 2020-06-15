@@ -54,25 +54,7 @@ function drawhelp(context) {
         context.fillText(text_line, window.containerW/2, window.containerH/2+(28*i)-t_height/2);
     }
 
-    context.textAlign = "right";
-    context.fillStyle = "#aaa";
-    var fsize = "11"
-    var ffamily = "Arial";
-    context.font = fsize + "pt " + ffamily;
-    context.fillText("Click here to view the tutorial", window.containerW-85, 22);
-    context.fillStyle="#f1c40f";
-    context.beginPath();
-// Draw a triangle location for each corner from x:y 100,110 -> 200,10 -> 300,110 (it will return to first point)
-    context.moveTo(window.containerW-76,18);
-    context.lineTo(window.containerW-70,10);
-    context.lineTo(window.containerW-64,18);
-    context.closePath();
-    context.fill();
-    context.beginPath();
-    context.rect(window.containerW-72,18,4,6);
-    context.fill();
 
-    context.font = cfont;
     
 }
 

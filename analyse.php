@@ -1,61 +1,5 @@
 <?php
-    require_once('config.php');
-    if(isset($_GET['af']) && isset($_GET['as'])){
-        $cookie_value = $_GET['af'] . ";" . $_GET['as'];
-        setcookie("ovauser", $cookie_value, time() + (86400 * 180), "/");
-    }
 
-    $source = $_GET['url'];
-    if($source == "local"){
-        $analysis = "localtext.html";
-    }elseif(substr($source,0,4)!="http"){
-        $rtime = time();
-        $salt = "ovas@lt22";
-        $hash = md5($rtime . $salt);
-        $analysis = "browser.php?r=" . $rtime . "&h=" . $hash . "&url=http://" . $_GET['url'];
-    }else{
-        $rtime = time();
-        $salt = "ovas@lt22";
-        $hash = md5($rtime . $salt);
-        $analysis = "browser.php?r=" . $rtime . "&h=" . $hash . "&url=" . $_GET['url'];
-    }
-
-    $pro = false;
-    $plusval = '';
-    if(isset($_GET['plus']) && $_GET['plus'] == 'true'){
-        $pro = true;
-        $plusval = "&plus=true";
-    }
-
-    if(isset($_GET['akey'])){
-        $akey = $_GET['akey'];
-    }else{
-        require_once('helpers/mysql_connect.php');
-
-        $akey = md5(time());
-
-        $sql = "INSERT INTO analyses (analyst, akey) VALUES (1, :akey)";
-        $q = $DBH->prepare($sql);
-        $q->execute(array(':akey'=>$akey));
-
-        $adb = "";
-        $aurl = $_GET['url'];
-        if(isset($_GET['aifdb'])){
-            $adb = "&aifdb=" . $_GET['aifdb'];
-            $txt = file_get_contents($TXurl . '/nodeset/' . $_GET['aifdb']);
-            if (preg_match("/^http[^ ]*$/i", $txt)) {
-                $aurl = $txt;
-            }
-        }
-        header('Location:analyse.php?url='.$aurl.$plusval.$adb.'&akey='.$akey);
-    }
-    $anamejs = 'window.afirstname = "Anon";window.asurname = "User";';
-    if(isset($_COOKIE['ovauser'])) {
-        $user = explode(";", $_COOKIE['ovauser']);
-        $af = $user[0];
-        $as = $user[1];
-        $anamejs = 'window.afirstname = "' . $af . '";window.asurname = "' . $as . '";';
-    }
 ?><!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -86,61 +30,37 @@
 
     <body onLoad="init();">
         <div id="head-bar">
-            <?php
-                $newurl = "analyse.php?url=".$_GET['url'].$plusval;
-            ?>
             <img src="res/img/logo-small.svg" onerror="this.onerror=null; this.src='res/img/logo-small.png'" id="ova-logo" height="48" />
             <a href="http://www.arg-tech.org/" style="border:0px;margin-left:12px;"><img src="res/img/DARG-tech.png" /></a>
-            <a href="" onclick="if($('#emenu').is(':visible')){$('#extramenu').show(); } mainTut(); return false;" class="cbtn"><div class="cbtn-icon" style="background-image: url('res/img/icon_help.png');"></div>Tutorial</a>
             <span class="csep"></span>
             <a href="" onClick="$('#modal-bg').show();$('#ova_settings').slideDown(100); return false;" class="cbtn" id="stngs"><div class="cbtn-icon" style="background-image: url('res/img/icon_settings.png');"></div>Settings</a>
             <a href="" onClick="$('#extramenu').toggle(); return false;" class="cbtn" id="emenu" style="display:none;"><div class="cbtn-icon" style="background-image: url('res/img/icon_emenu.png');"></div>Menu</a>
             <span class="csep"></span>
-            <a href="" onClick="genldot(); return false;" class="cbtn" id="alay"><div class="cbtn-icon" style="background-image: url('res/img/icon_alayout.png');"></div>Autolayout</a>
-            <span class="csep"></span>
-            <a href="" onClick="$('#modal-bg').show();$('#load_analysis').slideDown(100); return false;" class="cbtn" id="loada" data-step="8" data-intro="<p>Click here to load a previous analysis saved in JSON format.</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_load.png');"></div>Load Analysis</a>
-            <a href="" onClick="$('#modal-bg').show();$('#save_analysis').slideDown(100); return false;" class="cbtn" id="savea" data-step="7" data-intro="<p>Your analysis can be saved locally as either a JSON file, that can be re-opened in OVA, or an image.</p><p>Analyses can also be saved to AIFdb.</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_save.png');"></div>Save Analysis</a>
-            <a href="<?php echo $newurl; ?>" class="cbtn" id="newa" data-step="6" data-intro="Click here to start a new analysis. Any changes since you last saved will be lost." data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_new.png');"></div>New Analysis</a>
+            <a href="" onClick="save2db();" class="cbtn" id="savea" data-step="7" data-intro="<p>Your analysis can be saved locally as either a JSON file, that can be re-opened in OVA, or an image.</p><p>Analyses can also be saved to AIFdb.</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_save.png');"></div>Save Analysis</a>
             <span class="csep"></span>
             <a href="" onClick="edgeMode('switch'); return false;" class="cbtn" id="eadd" data-step="5" data-intro="<p>Edges can be added between nodes by clicking here, clicking on a node and dragging to the target node.</p><p>Click once for support or twice for conflict. Click again to cancel.</p><p>Edges can also be added by holding shift (support) or 'a' (conflict).</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_eadd.png');"></div>Add Edge</a>
             <a href="" onClick="nodeMode('switch'); return false;" class="cbtn" id="nadd" data-step="4" data-intro="Nodes with custom text (enthymemes) can be added by clicking here and then clicking on the canvas." data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_nadd.png');"></div>Add Node</a>
         </div>
 
-        <div id="extramenu">
-            <a href="<?php echo $newurl; ?>" id="em_newa" data-step="6" data-intro="Click here to start a new analysis. Any changes since you last saved will be lost." data-position="left">New Analysis</a>
-            <a href="" onClick="$('#modal-bg').show();$('#save_analysis').slideDown(100); return false;" id="em_savea" data-step="7" data-intro="<p>Your analysis can be saved locally as either a JSON file, that can be re-opened in OVA, or an image.</p><p>Analyses can also be saved to AIFdb.</p>" data-position="left">Save Analysis</a>
-            <a href="" onClick="$('#modal-bg').show();$('#load_analysis').slideDown(100); return false;" id="em_loada" data-step="8" data-intro="<p>Click here to load a previous analysis saved in JSON format.</p>" data-position="left">Load Analysis</a>
-            <a href="" onClick="genldot(); return false;" id="em_alay">Autolayout</a>
-            <a href="" onClick="$('#modal-bg').show();$('#ova_settings').slideDown(100); return false;" id="em_stngs">Settings</a>
-        </div>
-
         <div id="container" data-step="2" data-intro="Click the canvas to add the selected text as a new node." data-position="left"> 
             <div id="contextmenu">
             </div>
-            <canvas id="canvas" width="2000" height="4000" style="display: none;"> 
+            <canvas id="canvas" width="4000" height="4000" style="display: none;">
                 This text is displayed if your browser does not support HTML5 Canvas.
             </canvas> 
-            <canvas id="minimap" width="100" height="200" data-step="3" data-intro="<p>An overview of the analysis can be seen here.</p><p>Drag the box to move around the canvas.</p>" data-position="left"> </canvas>
+            <canvas id="minimap" width="100" height="200" data-step="3" data-intro="<p>An overview of the analysis can be seen here.</p><p>Drag the box to move around the canvas.</p>" data-position="left" style="display:none;"> </canvas>
         </div>
 
-        <div id="linkto">
-            <a id="linklink" onClick="genlink();$('#sharelink').toggle();"><img src="res/img/linkicon.png" id="linkicon" data-step="9" data-intro="<p>Click here to share your analysis.</p><p>Shared analyses are collaborative and can be edited by multiple people.</p>" data-position="left" /></a>
-        </div>
-
-        <div id="sharelink">
-            <p>Share this analysis:</p>
-            <input type="text" id="shareinput" value="Generating link" onClick="this.select();" />
-        </div>
 
         <div id="modal-bg" style="display:none;"> 
         </div>
 
         <?php if($source == "local"){ ?>
             <div id="extsite">
-                <div id="ova_arg_area_div" contenteditable="true" data-step="1" data-intro="<p>Enter the text that you want to analyse here.</p><p>Select sections of text to create a node.</p>" data-position="right">Enter your text here...</div>
+                <div id="ova_arg_area_div" contenteditable="true" data-step="1" data-intro="<p>Enter the text that you want to analyse here.</p><p>Select sections of text to create a node.</p>" data-position="right" style="display:none;">Enter your text here...</div>
             </div>
         <?php }else{ ?>
-            <iframe src="<?php echo $analysis; ?>" id="extsite" name="extsite" onLoad="$('#loadingmodal').hide();" style="width:35%;border-right:1px solid #666;" data-step="1" data-intro="<p>Highlight sections of text from the webpage to create a node.</p>" data-position="right"></iframe>
+            <iframe style="display:none;" src="<?php echo $analysis; ?>" id="extsite" name="extsite" onLoad="$('#loadingmodal').hide();" style="width:35%;border-right:1px solid #666;" data-step="1" data-intro="<p>Highlight sections of text from the webpage to create a node.</p>" data-position="right"></iframe>
         <?php } ?>
 
 
@@ -359,15 +279,5 @@
                 <a class="cancel" href="#" onClick="this.parentNode.parentNode.style.display='none';$('#modal-bg').hide(); return false;">&#10008; Close</a>
             </div>
         </div>
-
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-57244751-1', 'auto');
-            ga('send', 'pageview');
-        </script>
     </body>
 </html>

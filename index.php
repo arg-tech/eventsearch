@@ -33,7 +33,6 @@
                     </form>
 
                     <div class="form-btns">
-                        <a href="#" onClick="$('#source-sel').slideUp(400, function() {$('#analyst-details').slideDown()});return false;" data-step="2" data-intro="Click here to analyse using OVA+.<br />OVA+ allows for full IAT analysis of dialogical texts." data-position="bottom-middle-aligned">Analyse with OVA+</a>
                         <a href="#" onClick="ovaReg();return false;" data-step="1" data-intro="Click here to analyse using the original version of OVA" data-position="bottom-middle-aligned">Analyse</a>
                     </div>
                 </div>
