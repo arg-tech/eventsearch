@@ -1,0 +1,904 @@
+{
+    "questions": {
+        "arg": {
+            "id": "arg",
+            "options": [
+                {
+                    "text": "Argument relies on a source's opinion or character",
+                    "result": "source",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument does not depend on a source's opinion or character",
+                    "result": "not-source",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "source": {
+            "id": "source",
+            "options": [
+                {
+                    "text": "Argument is about the source's character",
+                    "result": "character",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is about the source's opinion",
+                    "result": "opinion",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "character": {
+            "id": "character",
+            "options": [
+                {
+                    "text": "Argument establishes the source's character",
+                    "result": "Argumentation from interaction of act and person",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument refers to the source's existing character",
+                    "result": "existing-character",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "existing-character": {
+            "id": "existing-character",
+            "options": [
+                {
+                    "text": "Argument relies on the source's good character",
+                    "result": "Ethotic argument",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument relies on bad character",
+                    "result": "negative-character",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "negative-character": {
+            "id": "negative-character",
+            "options": [
+                {
+                    "text": "Source is biased",
+                    "result": "bias",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is not related to bias",
+                    "result": "not-bias",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "bias": {
+            "id": "bias",
+            "options": [
+                {
+                    "text": "Source does not take both sides into account",
+                    "result": "Argument from bias",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Source's opinion is not acceptable",
+                    "result": "Bias ad hominem",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-bias": {
+            "id": "not-bias",
+            "options": [
+                {
+                    "text": "Source is of bad overall character",
+                    "result": "Generic ad hominem",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "The source's actions are not compatible with their commitments",
+                    "result": "incompatible",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "incompatible": {
+            "id": "incompatible",
+            "options": [
+                {
+                    "text": "Source's actions contradict the advocated position",
+                    "result": "Pragmatic inconsistency",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Source is not credible due to inconsistent commitments",
+                    "result": "Circumstantial ad hominem",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "opinion": {
+            "id": "opinion",
+            "options": [
+                {
+                    "text": "Argument establishes a source's opinion",
+                    "result": "attributing-opinion",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is based on an existing opinion",
+                    "result": "existing-opinion",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "attributing-opinion": {
+            "id": "attributing-opinion",
+            "options": [
+                {
+                    "text": "Commitment at issue is consistent with existing commitments",
+                    "result": "Argument from commitment",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Commitment at issue is not consistent with existing commitments",
+                    "result": "Argument from inconsistent commitment",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "existing-opinion": {
+            "id": "existing-opinion",
+            "options": [
+                {
+                    "text": "Source is a general group of people",
+                    "result": "Argument from popular opinion",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Source is a specific individual",
+                    "result": "individual",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "individual": {
+            "id": "individual",
+            "options": [
+                {
+                    "text": "Source is an expert in the subject domain",
+                    "result": "Argument from expert opinion",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Source's credibility is not based on domain knowledge",
+                    "result": "not-expert",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "not-expert": {
+            "id": "not-expert",
+            "options": [
+                {
+                    "text": "Source is a witness",
+                    "result": "Argument from witness testimony",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Source is not a witness",
+                    "result": "not-witness",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "not-witness": {
+            "id": "not-witness",
+            "options": [
+                {
+                    "text": "Argument is based on the source's memories",
+                    "result": "Argument from memory",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument does not explicitly refer to memories",
+                    "result": "not-memory",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "not-memory": {
+            "id": "not-memory",
+            "options": [
+                {
+                    "text": "Argument is based on the source's visual perception",
+                    "result": "Argument from perception",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument does not explicitly refer to perception",
+                    "result": "not-perception",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "not-perception": {
+            "id": "not-perception",
+            "options": [
+                {
+                    "text": "Conclusion is about a course of action",
+                    "result": "Two-person practical reasoning",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument is not action-oriented",
+                    "result": "Argument from position to know",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-source": {
+            "id": "not-source",
+            "options": [
+                {
+                    "text": "Conclusion is about a course of action",
+                    "result": "action",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Conclusion is not specifically action-oriented",
+                    "result": "not-action",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "action": {
+            "id": "action",
+            "options": [
+                {
+                    "text": "Argument hinges on the motivation for an action",
+                    "result": "motivation",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument focuses on the outcome of an action",
+                    "result": "outcome",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "motivation": {
+            "id": "motivation",
+            "options": [
+                {
+                    "text": "Course of action follows an established practice",
+                    "result": "established-practice",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Course of action is compared to a similar or alternative action",
+                    "result": "compared-action",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "established-practice": {
+            "id": "established-practice",
+            "options": [
+                {
+                    "text": "Course of action is explicitly regulated",
+                    "result": "Argument from rules",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Course of action follows general practices",
+                    "result": "Argument from popular practice",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "compared-action": {
+            "id": "compared-action",
+            "options": [
+                {
+                    "text": "Action is best alternative on the basis of prior commitments",
+                    "result": "Argument from sunk costs",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Action is directly compared to another",
+                    "result": "Practical reasoning from analogy",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "outcome": {
+            "id": "outcome",
+            "options": [
+                {
+                    "text": "Conclusion promotes a positive outcome",
+                    "result": "positive-outcome",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Conclusion prevents a negative outcome",
+                    "result": "negative-outcome",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "positive-outcome": {
+            "id": "positive-outcome",
+            "options": [
+                {
+                    "text": "Course of action assists someone else",
+                    "result": "assist",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Course of action does not offer help",
+                    "result": "not-help",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "assist": {
+            "id": "assist",
+            "options": [
+                {
+                    "text": "Course of action relieves suffering",
+                    "result": "Argument from distress",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument does not mention suffering",
+                    "result": "Argument from need for help",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-help": {
+            "id": "not-help",
+            "options": [
+                {
+                    "text": "Course of action promotes a goal",
+                    "result": "Argument from (positive) consequences",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Course of action is not related to an explicit goal",
+                    "result": "Practical reasoning",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "negative-outcome": {
+            "id": "negative-outcome",
+            "options": [
+                {
+                    "text": "Conclusion is in favour of a course of action",
+                    "result": "for-action",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Conclusion is against a course of action",
+                    "result": "against-action",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "for-action": {
+            "id": "for-action",
+            "options": [
+                {
+                    "text": "Course of action is already ongoing",
+                    "result": "Argument from waste",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Action is still to commence",
+                    "result": "undertaken",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "undertaken": {
+            "id": "undertaken",
+            "options": [
+                {
+                    "text": "Action is motivated by fear",
+                    "result": "Argument from fear appeal",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument is not about a fearful situation",
+                    "result": "Pragmatic argument from alternatives",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "against-action": {
+            "id": "against-action",
+            "options": [
+                {
+                    "text": "Chain of events would lead to bad outcome",
+                    "result": "Slippery slope argument",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Action's direct outcome is bad",
+                    "result": "direct-outcome",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "direct-outcome": {
+            "id": "direct-outcome",
+            "options": [
+                {
+                    "text": "Performing action would lead to punishment",
+                    "result": "Argument from threat",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument is not related to specific threat",
+                    "result": "not-threat",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "not-threat": {
+            "id": "not-threat",
+            "options": [
+                {
+                    "text": "Action would lead to dangerous situation",
+                    "result": "Argument from danger appeal",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Action would lead to other bad consequences",
+                    "result": "Argument from (negative) consequences",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-action": {
+            "id": "not-action",
+            "options": [
+                {
+                    "text": "Argument explicitly mentions values",
+                    "result": "values",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is not specifically value-based",
+                    "result": "not-value",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "values": {
+            "id": "values",
+            "options": [
+                {
+                    "text": "Conclusion is about retaining a goal",
+                    "result": "Argument from values",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Conclusion is about valuation",
+                    "result": "Argumentation from sacrifice",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-value": {
+            "id": "not-value",
+            "options": [
+                {
+                    "text": "Argument is about classification or legal rules",
+                    "result": "classification",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is not about classification or legal rules",
+                    "result": "not-classification",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "classification": {
+            "id": "classification",
+            "options": [
+                {
+                    "text": "Conclusion is about the applicability of a legal rule",
+                    "result": "rule",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is about meaning or classification",
+                    "result": "meaning",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "rule": {
+            "id": "rule",
+            "options": [
+                {
+                    "text": "Chain of similar cases supports application of rule",
+                    "result": "Precedent slippery slope argument",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Rule does not apply in this case",
+                    "result": "not-applicable",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "not-applicable": {
+            "id": "not-applicable",
+            "options": [
+                {
+                    "text": "Rule does not apply due to special circumstances",
+                    "result": "Argument from plea for excuse",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument is about an exception to the rule",
+                    "result": "exception",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "exception": {
+            "id": "exception",
+            "options": [
+                {
+                    "text": "Premise refers to a recognised type of exception",
+                    "result": "Argument for an exceptional case",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Conclusion establishes a new exception to the rule",
+                    "result": "Argument from precedent",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "meaning": {
+            "id": "meaning",
+            "options": [
+                {
+                    "text": "Argument is based on an existing meaning or classification",
+                    "result": "existing-classification",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument establishes a new meaning or classification",
+                    "result": "establishing-meaning",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "existing-classification": {
+            "id": "existing-classification",
+            "options": [
+                {
+                    "text": "Argument uses a term with arbitrary meaning",
+                    "result": "Argument from arbitrariness of a verbal classification",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument uses a term with vague meaning",
+                    "result": "Argument from vagueness of a verbal classification",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "establishing-meaning": {
+            "id": "establishing-meaning",
+            "options": [
+                {
+                    "text": "Argument relies on a chain of reasoning",
+                    "result": "chain-classification",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument constitutes a single reasoning step",
+                    "result": "single-classification",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "chain-classification": {
+            "id": "chain-classification",
+            "options": [
+                {
+                    "text": "Conclusion establishes a new classification",
+                    "result": "Sorites slippery slope argument",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Conclusion rejects a new classification",
+                    "result": "Verbal slippery slope argument",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "single-classification": {
+            "id": "single-classification",
+            "options": [
+                {
+                    "text": "Conclusion establishes a new meaning",
+                    "result": "Argument for constitutive-rule claims",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Conclusion establishes a new classification",
+                    "result": "establishing-classification",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "establishing-classification": {
+            "id": "establishing-classification",
+            "options": [
+                {
+                    "text": "New classification is based on a definition",
+                    "result": "Argument from definition to verbal classification",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "New classification is based on a property",
+                    "result": "Argument from verbal classification",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-classification": {
+            "id": "not-classification",
+            "options": [
+                {
+                    "text": "Argument relies on a chain of reasoning",
+                    "result": "chain",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument constitutes a single reasoning step",
+                    "result": "single",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "chain": {
+            "id": "chain",
+            "options": [
+                {
+                    "text": "Conclusion is about accepting something",
+                    "result": "Argument from gradualism",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Conclusion is about rejecting something",
+                    "result": "Full slippery slope argument",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "single": {
+            "id": "single",
+            "options": [
+                {
+                    "text": "Argument relies on a causal relation",
+                    "result": "causal",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument does not specifically rely on causality",
+                    "result": "not-causal",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "causal": {
+            "id": "causal",
+            "options": [
+                {
+                    "text": "Argument relies on a known causal relation",
+                    "result": "Argument from cause to effect",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument establishes a new causal relation",
+                    "result": "Argument from correlation to cause",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "not-causal": {
+            "id": "not-causal",
+            "options": [
+                {
+                    "text": "Argument relies on an individual case",
+                    "result": "individual-case",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument relates to (a collection of) other cases",
+                    "result": "collection",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "collection": {
+            "id": "collection",
+            "options": [
+                {
+                    "text": "Conclusion attributes a property",
+                    "result": "attributing-property",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Conclusion rejects a property",
+                    "result": "rejecting-property",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "attributing-property": {
+            "id": "attributing-property",
+            "options": [
+                {
+                    "text": "Argument is based on group membership",
+                    "result": "Argumentation from the group and its members",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument is based on a part-whole relation",
+                    "result": "part-whole",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "part-whole": {
+            "id": "part-whole",
+            "options": [
+                {
+                    "text": "Reasoning goes from the parts to the whole",
+                    "result": "Argument from composition",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Reasoning goes from the whole to its parts",
+                    "result": "Argument from division",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "rejecting-property": {
+            "id": "rejecting-property",
+            "options": [
+                {
+                    "text": "Argument is based on contradictory properties",
+                    "result": "Argument from oppositions",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Subject is not an element of the expected class",
+                    "result": "Epistemic argument from ignorance",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "individual-case": {
+            "id": "individual-case",
+            "options": [
+                {
+                    "text": "Argument refers to a characteristic sign",
+                    "result": "signals",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Argument is based on a comparison",
+                    "result": "comparison",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "signals": {
+            "id": "signals",
+            "options": [
+                {
+                    "text": "Characteristic sign is absent",
+                    "result": "Argument from ignorance",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Characteristic sign is present",
+                    "result": "sign-present",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "sign-present": {
+            "id": "sign-present",
+            "options": [
+                {
+                    "text": "Conclusion is a hypothesis",
+                    "result": "Argument from evidence to a hypothesis",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Premise mentions a sign",
+                    "result": "Argument from sign",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "comparison": {
+            "id": "comparison",
+            "options": [
+                {
+                    "text": "Case at issue is similar to compared case(s)",
+                    "result": "similar",
+                    "resulttype": "SS"
+                },
+                {
+                    "text": "Case at issue is different from compared case(s)",
+                    "result": "different",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "similar": {
+            "id": "similar",
+            "options": [
+                {
+                    "text": "Argument compares between particular instances",
+                    "result": "Argument from analogy",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument generalises from a particular instance",
+                    "result": "Argument from example",
+                    "resulttype": "TT"
+                }
+            ]
+        },
+        "different": {
+            "id": "different",
+            "options": [
+                {
+                    "text": "Explanation is better than the alternatives",
+                    "result": "Abductive argumentation scheme",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument compares to an opposite case",
+                    "result": "opposite",
+                    "resulttype": "SS"
+                }
+            ]
+        },
+        "opposite": {
+            "id": "opposite",
+            "options": [
+                {
+                    "text": "Argument rejects an alternative",
+                    "result": "Argument from alternatives",
+                    "resulttype": "TT"
+                },
+                {
+                    "text": "Argument based on opposite treatment in a contrary case",
+                    "result": "Rhetorical argument from oppositions",
+                    "resulttype": "TT"
+                }
+            ]
+        }
+    }
+}

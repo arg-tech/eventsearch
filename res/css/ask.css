@@ -1,0 +1,38 @@
+div#ask_dialogue {
+
+}
+
+
+div#ask-detail {
+    font-size: 0.8em;
+}
+
+div#ask-cont{
+
+}
+
+a.ask-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ddd;
+    border: 1px solid #666;
+    margin-top: 10px;
+    color: #333;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+a.ask-opt {
+    display: block;
+    width: 90%;
+    background-color: #ddd;
+    padding: 6px 12px;
+    margin: 4px 0px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8em;
+}
+
+a.ask-opt:hover {
+    background-color: #ded;
+}
