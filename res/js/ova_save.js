@@ -344,7 +344,6 @@ function save2db() {
     var json = {}
     var jnodes = [];
     var jedges = [];
-    var jschemefulfillments = [];
     var jlocutions = [];
 
     for (var i = 0, l = nodes.length; i < l; i++) {
@@ -353,13 +352,6 @@ function save2db() {
         jnode['text'] = nodes[i].text;
         jnode['type'] = nodes[i].type;
         jnodes.push(jnode);
-    
-        if(nodes[i].scheme != 0){
-            var jschemefulfillment = {};
-            jschemefulfillment['nodeID'] = nodes[i].id;
-            jschemefulfillment['schemeID'] = nodes[i].scheme;
-            jschemefulfillments.push(jschemefulfillment);
-        }
     }
 
     for (var i = 0, l = edges.length; i < l; i++) {
@@ -372,7 +364,6 @@ function save2db() {
 
     json['nodes'] = jnodes;
     json['edges'] = jedges;
-    json['schemefulfillments'] = jschemefulfillments;
     json['locutions'] = jlocutions;
 
     jstring = JSON.stringify(json);
