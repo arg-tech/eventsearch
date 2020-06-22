@@ -61,10 +61,10 @@ function postEdit(type, action, content){
         if(content == null){
             alert("Error with "+type+" "+action);
         }else{
-            $.post( "helpers/edit.php", { type: type, action: action, cnt: JSON.stringify(content), akey: window.akey, sessionid: window.sessionid } ).done(function( data ) {
-                dt = JSON.parse(data);
+            //$.post( "helpers/edit.php", { type: type, action: action, cnt: JSON.stringify(content), akey: window.akey, sessionid: window.sessionid } ).done(function( data ) {
+            //    dt = JSON.parse(data);
                 //lastedit = dt.last;
-            });  
+            //});
         }
     }
     window.unsaved = true;

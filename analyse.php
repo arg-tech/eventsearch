@@ -33,7 +33,6 @@
             <img src="" onerror="" id="ova-logo" height="48" />
             <a href="" style="border:0px;margin-left:12px;"><img src="" /></a>
             <span class="csep"></span>
-            <a href="" onClick="$('#modal-bg').show();$('#ova_settings').slideDown(100); return false;" class="cbtn" id="stngs"><div class="cbtn-icon" style="background-image: url('res/img/icon_settings.png');"></div>Settings</a>
             <a href="" onClick="$('#extramenu').toggle(); return false;" class="cbtn" id="emenu" style="display:none;"><div class="cbtn-icon" style="background-image: url('res/img/icon_emenu.png');"></div>Menu</a>
             <span class="csep"></span>
             <a href="" onClick="save2db();return false;" class="cbtn" id="savea" data-step="7" data-intro="<p>Your analysis can be saved locally as either a JSON file, that can be re-opened in OVA, or an image.</p><p>Analyses can also be saved to AIFdb.</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon-savedb.png');"></div>Search AIFdb</a>
