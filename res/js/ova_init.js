@@ -1338,7 +1338,7 @@ function init() {
         }
     });
 
-    updateAnalysis();
+    //updateAnalysis();
 
     $('#ova_arg_area_div').on('paste', function() {
         setTimeout(function(e) {
