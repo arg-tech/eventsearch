@@ -8,7 +8,7 @@
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
-        <title>OVA from ARG-tech</title>
+        <title>ArgSearch</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="res/css/reset.css">
         <link rel="stylesheet" href="res/css/splash.css">
@@ -22,19 +22,16 @@
     <body>
         <div id="wrap" onclick="$('#aboutmodal').hide();"><div style='width:0;height:0'>&nbsp;</div>
             <div id="content">
-                <img src="res/img/logo-small.svg" onerror="this.onerror=null; this.src='res/img/logo-small.png'" id="ova-logo" height="60" />
+                <img src="" onerror="" id="ova-logo" height="60" />
                 <div id="source-sel" class="mdlg">
-                    <a href="#" class="helpbtn" onclick="javascript:introJs().setOption('showStepNumbers', false).start(); return false;">?</a>
-                    <form method="GET" action="./analyse.php" class="fstyle">
-                    <p style="padding: 20px 0px;"> 
-                    <label>URL of the page to analyse <span style="color:#999;">(leave blank to analyse your own text)</span>:<br /> 
-                    <input type="text" name="url" id="urlinput" class="input" value="" style="font-size: 22px; padding: 3px; width:96%; color: #666;" /></label> 
-                    </p>
-                    </form>
+
 
                     <div class="form-btns">
-                        <a href="#" onClick="ovaReg();return false;" data-step="1" data-intro="Click here to analyse using the original version of OVA" data-position="bottom-middle-aligned">Analyse</a>
+                        <a href="./analyse.php" onClick="" data-step="1" data-intro="Click here to analyse using the original version of OVA" data-position="bottom-middle-aligned">Graph Search</a>
+                        <a href="http://www.aifdb.org/search" onClick="" data-step="2" data-intro="" data-position="bottom-middle-aligned">Text Search</a>
                     </div>
+
+
                 </div>
                 <div id="analyst-details" class="mdlg" style="display:none; position:relative;">
                     <div class="mdlg-title">
@@ -71,23 +68,7 @@
             <div id="push"></div>
         </div>
 
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                <p><strong>OVA</strong> by <a href="http://www.arg-tech.org">ARG-tech</a> | <a onclick="$('#aboutmodal').show();return false;" style="text-decoration:underline; cursor: pointer;">About OVA</a></p>
-                </div>
-            </div>
-        </div>
-        <div id="aboutmodal"><?php include_once('about.html'); ?></div>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-57244751-1', 'auto');
-            ga('send', 'pageview');
-        </script>
 
     </body>
 </html>

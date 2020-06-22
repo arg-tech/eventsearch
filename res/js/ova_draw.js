@@ -37,7 +37,7 @@ function roundRect(context, x, y, r, w, h, fill, stroke_w, stroke_color) {
 }
 
 function drawhelp(context) {
-    var help_text = ['Select text to the left and click here to add a node',
+    var help_text = ['Select add node on the toolbar and click on the canvas',
                      'Double click a node to edit',
                      'Shift+click and drag between nodes to join with edges'];
 

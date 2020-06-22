@@ -349,13 +349,16 @@ function save2db() {
     for (var i = 0, l = nodes.length; i < l; i++) {
         var jnode = {};
         jnode['nodeID'] = nodes[i].id;
-        jnode['text'] = nodes[i].text;
+        var node_text = nodes[i].text;
+        node_text = node_text.trim();
+        jnode['text'] = node_text;
         jnode['type'] = nodes[i].type;
         jnodes.push(jnode);
     }
 
     for (var i = 0, l = edges.length; i < l; i++) {
         var jedge = {};
+        jedge['edgeID'] = "e" + i;
         jedge['fromID'] = edges[i].from.id;
         jedge['toID'] = edges[i].to.id;
         jedges.push(jedge);
