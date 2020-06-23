@@ -37,7 +37,9 @@
             <a href="" onClick="save2db();return false;" class="cbtn" id="savea" data-step="7" data-intro="<p>Your analysis can be saved locally as either a JSON file, that can be re-opened in OVA, or an image.</p><p>Analyses can also be saved to AIFdb.</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon-savedb.png');"></div>Search AIFdb</a>
             <span class="csep"></span>
             <a href="" onClick="edgeMode('switch'); return false;" class="cbtn" id="eadd" data-step="5" data-intro="<p>Edges can be added between nodes by clicking here, clicking on a node and dragging to the target node.</p><p>Click once for support or twice for conflict. Click again to cancel.</p><p>Edges can also be added by holding shift (support) or 'a' (conflict).</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_eadd.png');"></div>Add Edge</a>
+            <span class="csep"></span>
             <a href="" onClick="nodeMode('switch'); return false;" class="cbtn" id="nadd" data-step="4" data-intro="Nodes with custom text (enthymemes) can be added by clicking here and then clicking on the canvas." data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon_nadd.png');"></div>Add Node</a>
+            <span class="csep"></span>
         </div>
 
         <div id="container" data-step="2" data-intro="Click the canvas to add the selected text as a new node." data-position="left"> 
