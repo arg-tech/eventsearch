@@ -75,10 +75,6 @@
                     <option value="CA">CA</option>
                 </select>
 
-                <label for="s_sset" id="s_sset_label">Scheme Set</label>
-                <select id="s_sset" onChange="filterschemes(this.value);">
-                    <option value="0">All Schemes</option>
-                </select>
 
                 <label for="s_cscheme" id="s_cscheme_label">Scheme</label>
                 <select id="s_cscheme" onChange="setdescriptors(this.value);">
@@ -111,7 +107,7 @@
                 </select>
 
 		<p style="text-align: right;">
-                    <a href="#" onClick="ask_detail(mySel); $('#ask_dialogue').show(); ask_init(); return false;">Click here to use ASK</a>
+
                 </p>
 
                 <label for="n_text" id="n_text_label">Text</label>

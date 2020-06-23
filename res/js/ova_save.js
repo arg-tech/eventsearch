@@ -372,7 +372,19 @@ function save2db() {
     jstring = JSON.stringify(json);
     console.log(jstring);
 
-
+    $.ajax({
+    type: 'POST',
+    url: "sendJSON.php",
+    data: {aif_json:jstring},
+    success: function(response) {
+        // some debug could be here
+        console.log('success');
+    },
+    error: function(e) {
+        // some debug could be here
+        alert('Failed to send JSON.');
+    }
+    });
 
     return jstring;
 }

@@ -985,7 +985,7 @@ function setdescriptors(schemeID, node) {
     document.getElementById("descriptor_selects").style.display = "block";
     //document.getElementById("node_edit").style.height = "350px";
 
-    $.getJSON("browserint.php?x=ipxx&url="+window.DBurl+"/formedges/scheme/"+schemeID, function(json_data){
+    /*$.getJSON("browserint.php?x=ipxx&url="+window.DBurl+"/formedges/scheme/"+schemeID, function(json_data){
         $('#descriptor_selects').empty();
         $('#descriptor_selects').append('<b>Descriptors</b>');
         $('#cq_selects').empty();
@@ -1086,7 +1086,7 @@ function setdescriptors(schemeID, node) {
         }else{
             $('#cq_selects').hide();
         }
-    });
+    });*/
 }
 
 function getsocial() {
@@ -1302,7 +1302,7 @@ function init() {
     canvas_init();
     minimap_init();
 
-    $.getJSON("browserint.php?x=ipxx&url="+window.DBurl+"/schemes/all/", function(json_data){
+    /*$.getJSON("browserint.php?x=ipxx&url="+window.DBurl+"/schemes/all/", function(json_data){
         console.log(json_data);
         schemes = json_data.schemes;
         schemes.sort(sort_by('name', true, function(a){return a.toUpperCase()}));
@@ -1336,7 +1336,7 @@ function init() {
             $('#s_sset').append('<option value="' + schemeset.id + '">' + schemeset.name + '</option>');
             window.ssets[schemeset.id] = schemeset.schemes;
         }
-    });
+    });*/
 
     //updateAnalysis();
 
