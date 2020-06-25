@@ -1,7 +1,7 @@
 version: '2'
 services:
  lamp:
-  container_name: ova-lamp
+  container_name: search-lamp
   build: .
   ports:
    - "8900:8900"
