@@ -1,0 +1,603 @@
+
+
+/* ==== header bar ==== */
+
+div#head-bar {
+    height: 92px;
+    width: 100%;
+    background-color: #2c353a;
+}
+
+img#ova-logo {
+    margin: 21px 0px 0px 20px;
+}
+
+div#head-bar a.cbtn {
+    font-family: sans-serif;
+    font-size: 7pt;
+    text-decoration: none;
+    color: #848e92;
+    display: inline-block;
+    width: 100px;
+    height: 92px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    line-height: 92px;
+    float: right;
+    text-align: center;
+    position: relative;
+    outline: 0;
+}
+
+div#head-bar a#alay {
+    background-color: #5352ed;
+    color: #fff;
+}
+
+div#head-bar a#alay:hover {
+    background-color: #3742fa;
+}
+
+div#head-bar a#alay div.cbtn-icon {
+    background-position: 0px -18px;
+}
+
+div#head-bar a.cbtn div.cbtn-icon {
+    position: absolute;
+    top: 30px;
+    left: 41px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+
+div#head-bar a.cbtn:hover {
+    background-color: #222b2f;
+    color: #fff;
+}
+
+div#head-bar a#nadd.active {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+div#head-bar a#eadd.attack {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+div#head-bar a#eadd.support {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+div#head-bar a.cbtn:hover div.cbtn-icon, div#head-bar a.cbtn.active div.cbtn-icon {
+    background-position: 0px -18px;
+}
+
+span.csep {
+    display: inline-block;
+    width: 1px;
+    height: 92px;
+    margin: 0px 0px 0px 1px;
+    border-left: 1px solid #414a4f;
+    float: right;
+}
+
+
+/* ==== left panel ==== */
+
+div#extsite {
+    position: absolute;
+    top: 92px;
+    left: 0;
+    width: 20%;
+    height: 80%;
+    border: 0px;
+    background-color: #fff;
+    outline: 0;
+}
+
+div#extsite div#ova_arg_area_div {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 13px;
+    background-color: #f8f9fc;
+    border-right: 1px solid #d0d1d8;
+    color: #333;
+    font-family: "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+    padding: 20px;
+    overflow: auto;
+    outline: 0;
+    line-height: 1.4em;
+}
+
+.highlighted {
+    color: #fff;
+    background-color: #2ecc71;
+    box-shadow: 0px -2px 0 1px #2ecc71, 0px 2px 0 1px #2ecc71;
+}
+
+.hlcurrent {
+    color: #fff;
+    background-color: #f39c12 !important;
+    box-shadow: 0px -2px 0 1px #f39c12, 0px 2px 0 1px #f39c12 !important;
+}
+
+/* ==== right panel ==== */
+
+div#container {
+    position: absolute;
+    top: 92px;
+    right: 0px;
+    overflow: hidden;
+    width: 80%;
+    height: 80%;
+}
+
+div#modal-bg {
+    background-color:rgba(0,0,0,0.4);
+    position: absolute;
+    top: 92px;
+    right: 0px;
+    width: 80%;
+    height: 80%;
+    z-index: 2;
+}
+
+#canvas {
+    background-color: #fff;
+    z-index: 0;
+}
+
+#minimap {
+    background-color: #fff;
+    z-index: 1;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border-top: 1px solid #d0d1d8;
+    border-left: 1px solid #d0d1d8;
+}
+
+div#linkto {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+}
+
+a#linklink {
+    cursor: pointer;
+}
+
+img#linkicon {
+    background-color: #888888;
+}
+
+a#linklink:hover img#linkicon {
+    background-color: #333333;
+}
+
+div#sharelink {
+    z-index: 99999;
+    position: absolute;
+    top: 130px; right: 10px;
+    width: 300px; height: 60px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    padding: 20px;
+    display: none;
+}
+
+div#sharelink p {
+    font-weight: bold;
+    font-size: 11px;
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+}
+
+div#sharelink input {
+    padding: 6px;
+    width: 80%;
+    border: 1px solid #ccc;
+    font-size: 11px;
+}
+
+/* ========{ modals }======== */
+
+div.modal-box {
+    z-index: 99999;
+    position: absolute;
+    top: 92px; right: 5%;
+    width: 500px;
+    color: #333;
+    background-color: #fff;
+    display: none;
+    border: 1px solid #bbb;
+    border-top: 0px;
+    padding: 0px;
+}
+
+div.modal-title {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #bbb;
+    background-color: #f8f9fc;
+}
+
+div.modal-title p {
+    padding: 0px 20px;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #aaa;
+}
+
+div.modal-btns {
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #bbb;
+    background-color: #f8f9fc;
+}
+
+div.modal-btns a {
+    font-size: 11px;
+    font-weight: bold;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #333;
+    float: right;
+    padding: 0px 20px;
+    text-decoration: none;
+    border-left: 1px solid #bbb;
+}
+
+div.modal-btns a:hover {
+    color: #fff !important;
+}
+
+div.modal-btns a.save {
+    color: #27ae60;
+}
+
+div.modal-btns a.save:hover {
+    background-color: #2ecc71;
+}
+
+div.modal-btns a.cancel {
+    color: #c0392b;
+}
+
+div.modal-btns a.cancel:hover {
+    background-color: #e74c3c;
+}
+
+ul.btnlist {
+    list-style-type: none;
+    margin: 8px 0px;
+    padding: 0px;
+}
+
+ul.btnlist li a {
+    font: 11px "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+    display: block;
+    padding: 10px 10px;
+    margin: 0px 50px;
+    width: 380px;
+    border-top: 1px solid #eee;
+    text-decoration: none;
+    color: #848e92;
+    line-height: 18px;
+}
+
+ul.btnlist > li:last-child a {
+    border-bottom: 1px solid #eee;
+}
+
+ul.btnlist li a div.btnicn {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+
+ul.btnlist li a:hover div.btnicn {
+    background-position: 0px -18px;
+    background-repeat: no-repeat;
+}
+
+ul.btnlist li a:hover {
+    background-color: #848e92;
+    color: #fff;
+}
+
+ul.btnlist li a.bgred:hover {
+    background-color: #e74c3c;
+}
+
+ul.btnlist li a.bggrn:hover {
+    background-color: #2ecc71;
+}
+
+ul.btnlist li a.bgblu:hover {
+    background-color: #3498db;
+}
+
+/* ========{ Context Menu Box }======== */
+
+#contextmenu {
+    z-index: 99999;
+    position: absolute;
+    color: #333;
+    background-color: #fff;
+    display: none;
+    border: 1px solid #999;
+    padding: 0px;
+    box-shadow: 5px 5px 5px #bbb;
+}
+
+#contextmenu a {
+    cursor: pointer;
+    background-color: #fff;
+    display: block;
+    padding: 4px 12px;
+    margin: 1px;
+    width: 100px;
+    font-size: 0.9em;
+    border: 1px solid #fff;
+}
+
+#contextmenu a:hover {
+    background-color: #ddd;
+    border: 1px solid #bbb;
+}
+
+/* ==== Social Users ==== */
+
+div#socialusers {
+    width: 320px;
+    border: 1px solid #bbb;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    background-color: #fff;
+}
+
+div#socialusers a {
+    display: block;
+    margin: 2px 0px;
+    padding: 6px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 30px;
+    font-size: 11px;
+    color: #777;
+    font-weight: bold;
+}
+
+div#socialusers a:hover {
+    background-color: #e0e0e0;
+}
+
+div#socialusers img {
+    width: 28px;
+    border: 1px solid #bbb;
+    margin-right: 16px;
+    float: left;
+}
+
+/* ==== Text Settings ==== */
+
+a#textsettings {
+    position: absolute;
+    bottom: -40px;
+    left: 4px;
+}
+
+div#ts-box {
+    display: none;
+    position: absolute;
+    bottom: -40px;
+    height: 90px;
+    left: 36px;
+    border: 1px solid #d0d1d8;
+    width: 200px;
+    background-color: #fff;
+    padding: 0px 10px;
+    font-size: 12px;
+}
+
+div#extsite.ts div#ova_arg_area_div {
+    font-size: 11px;
+}
+
+div#extsite.tm div#ova_arg_area_div {
+    font-size: 13px;
+}
+
+div#extsite.tl div#ova_arg_area_div {
+    font-size: 18px;
+}
+
+div#extsite.ts .highlighted {
+    box-shadow: 0px 0px 0 0px #2ecc71, 0px 0px 0 0px #2ecc71;
+}
+
+div#extsite.ts .hlcurrent {
+    box-shadow: 0px 0px 0 0px, 0px 0px 0 0px !important;
+}
+
+div#extsite.tm .highlighted, div#extsite.tl .highlighted{
+    box-shadow: 0px -2px 0 1px #2ecc71, 0px 2px 0 1px #2ecc71;
+}
+
+div#extsite.tm .hlcurrent, div#extsite.tl .hlcurrent {
+    box-shadow: 0px -2px 0 1px #f39c12, 0px 2px 0 1px #f39c12 !important;
+}
+
+div#textstg a.its, div#textstg a.itm, div#textstg a.itl {
+    background-position: 0px 0px;
+    background-color: #fff;
+}
+
+div#textstg a.its.sel, div#textstg a.itm.sel, div#textstg a.itl.sel {
+    background-position: 0px -36px;
+    background-color: #27ae60;
+}
+
+div#textstg a {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-position: 0px 0px;
+    background-color: #f8f9fc;
+    float: right;
+    margin-left:24px;
+}
+
+div#textstg a:hover {
+    background-position: 0px -36px !important;
+    background-color: #2ecc71 !important;
+}
+
+div#textstg {
+    margin-bottom: 10px;
+}
+
+div#anlstg {
+    clear: both;
+}
+
+a.helpbtn {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    color: #777;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+a.helpbtn:hover {
+    background-color: #999;
+    color: #eee;
+}
+
+/* ========{ Modal }======== */
+
+#save_modal {
+    text-align: center;
+}
+
+#m_load {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    display: none;
+    height: 100px;
+    margin-top: 70px;
+}
+
+#m_content {
+    display: none;
+    margin-top: 30px;
+}
+
+#m_content a {
+    color: #333;
+}
+
+/* CQ */
+
+div#cq_selects {
+    margin-top: 5px;
+    max-height: 200px;
+    line-height: normal;
+    overflow: auto;
+}
+
+div#descriptor_selects {
+    margin-top: 5px;
+}
+
+/* Toggle Switches */
+
+a.togglesw {
+    display: block;
+    height: 20px;
+    width: 60px;
+    margin: 1px solid #555;
+    background-color: #eee;
+    color: #333;
+}
+
+a.togglesw span.tson, a.togglesw span.tsoff {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    width: 30px;
+    text-align: center;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+a.togglesw.on span.tson {
+    background-color: #2ECC71;
+    color: #fff;
+}
+
+a.togglesw.on span.tsoff {
+    color: #ccc;
+}
+
+a.togglesw.off span.tsoff {
+    background-color: #444;
+    color: #fff;
+}
+
+a.togglesw.off span.tson {
+    color: #ccc;
+}
+
+div#extramenu {
+    display: none;
+    position:absolute;
+    right: 0px;
+    top: 92px;
+    width: 200px;
+    border: 1px solid #444;
+    border-top: 0px;
+    z-index: 999999;
+}
+
+div#extramenu a {
+    display: block;
+    padding: 0px 20px;
+    width: 160px;
+    border-top: 1px solid #444;
+    height: 32px;
+    line-height: 32px;
+    background-color: #fff;
+    color: #333;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+div#extramenu a:hover {
+    background-color: #ddd;
+}
