@@ -1,0 +1,18 @@
+version: '2'
+services:
+ lamp:
+  container_name: ova-lamp
+  build: .
+  ports:
+   - "8900:8900"
+  volumes:
+  - ./var/www/:/var/www/
+
+# mysql:
+#  image: mysql:5.7
+#  container_name: ova-lamp-mysql
+#  environment:
+#  - MYSQL_ROOT_PASSWORD=Ee7iN7oos8
+#  volumes:
+#  - ./var/lib/mysql:/var/lib/mysql
+#  - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
