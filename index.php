@@ -22,53 +22,68 @@
     <body>
         <div id="wrap" onclick="$('#aboutmodal').hide();"><div style='width:0;height:0'>&nbsp;</div>
             <div id="content">
-                <img src="" onerror="" id="ova-logo" height="60" />
                 <div id="source-sel" class="mdlg">
 
+        <form method="GET" action="http://www.aifdb.org/search" id="textsearch">
+                <br />
+                <div class="sectionrule"><div class="srcontent">Text</div></div>
+                <input type="text" name="q" class="searchinput" value="" tabindex="10" id="asrchi" />
 
+                <br />
+                <br />
+                <div class="sectionrule"><div class="srcontent">Speaker</div></div>
+                <input type="text" name="p" class="searchinput" value="" tabindex="10" />
+                <input type="hidden" name="am" value="1" />
+                <br />
+                <br />
+
+                <div class="sectionrule"><div class="srcontent">Date Added From and To</div></div>
+                <table class="split-date-wrap" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                    <td><input type="text" class="w2em" id="date-1-dd" name="date-1-dd" value="" maxlength="2" placeholder="DD" />
+                    <td><input type="text" class="w2em" id="date-1-mm" name="date-1-mm" value="" maxlength="2" placeholder="MM" /></td>
+                    <td class="lastTD"><input type="text" class="w4em split-date fill-grid statusformat-l-cc-sp-d-sp-F-sp-Y show-weeks no-today-button" id="date-1" name="date-1" value="" maxlength="4" placeholder="YYYY" /></td>
+                    </tr>
+                    <tr>
+                    <td><input type="text" class="w2em" id="date-2-dd" name="date-2-dd" value="" maxlength="2" placeholder="DD"/></td>
+                    <td><input type="text" class="w2em" id="date-2-mm" name="date-2-mm" value="" maxlength="2" placeholder="MM"/></td>
+                    <td class="lastTD"><input type="text" class="w4em split-date fill-grid statusformat-l-cc-sp-d-sp-F-sp-Y show-weeks no-today-button" id="date-2" name="date-2" value="" maxlength="4" placeholder="YYYY"/></td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <div class="sectionrule"><div class="srcontent">Scheme</div></div>
+                <select name="s" class="searchselect" id="sselect">
+                    <option value="">Select a Scheme</option>
+                    <?php
+                    $url = "http://aifdb.org/schemes/all/";
+                    $json = file_get_contents($url);
+                    $json_data = json_decode($json, true);
+                    foreach($json_data['schemes'] as $entry) {
+                        echo "<option value=".$entry['name']." select>".$entry['name']."</option>";
+                    }
+
+                    ?>
+                </select>
+                <br />
+                <br />
+                <br />
+
+            <div class="form-btns">
+            <a href="#" onClick="document.getElementById('textsearch').submit()" data-step="2" data-intro="" data-position="bottom-middle-aligned">Text Search</a>
+            </div>
+            </form>
+                    <br />
+
+                    <hr>
+                    <br />
+                    <p>Use graph search</p>
+                    <br />
                     <div class="form-btns">
                         <a href="./analyse.php" onClick="" data-step="1" data-intro="Click here to analyse using the original version of OVA" data-position="bottom-middle-aligned">Graph Search</a>
-                        <a href="http://www.aifdb.org/search" onClick="" data-step="2" data-intro="" data-position="bottom-middle-aligned">Text Search</a>
                     </div>
-
-
-                </div>
-                <div id="analyst-details" class="mdlg" style="display:none; position:relative;">
-                    <div class="mdlg-title">
-                        <p>Analyst Details</p>
-                    </div>
-                    <div id="showfs" style="display:none; position: absolute; top: 130px; left: 20px;"><a onClick="resetform('ep');" style="cursor:pointer;padding:2px 3px;background-color:#e6e6e6;">&laquo;</a></div>
-                    <form method="GET" action="./analyse.php" id="fs" class="fstyle" style="width:86%; float: left;">
-                        <p style="padding: 20px 0px;"> 
-                        <label>First Name:<br /> 
-                        <input type="text" name="af" id="afinput" class="input" value="<?php echo $af; ?>" style="font-size: 22px; padding: 3px; width:90%; color: #666;" /></label> 
-                        <label>Surname:<br /> 
-                        <input type="text" name="as" id="asinput" class="input" value="<?php echo $as; ?>" style="font-size: 22px; padding: 3px; width:90%; color: #666;" /></label> 
-                        </p>
-                    </form>
-                    <!--<div id="adsep" class="vsep" style="float: left;margin-top: 40px; margin-left:50px;"><div>or</div></div>
-                    <form method="GET" action="./analyse.php" id="ep" class="fstyle" style="width:30%; float: left;">
-                        <p style="padding: 20px 0px;"> 
-                        <label>Email:<br /> 
-                        <input type="text" name="af" id="afinput" class="input" value="" style="font-size: 22px; padding: 3px; width:90%; color: #666;" onfocus="expandform('ep')" /></label> 
-                        <label>Password:<br /> 
-                        <input type="password" name="as" id="asinput" class="input" value="" style="font-size: 22px; padding: 3px; width:90%; color: #666;" onfocus="expandform('ep')" /></label>
-                        </p>
-                    </form>
-                    <div id="showep" style="display:none; position: absolute; top: 130px; right: 20px;"><a onClick="resetform('fs');" style="cursor:pointer;padding:2px 3px;background-color:#e6e6e6;">&laquo;</a></div>
-                    -->
-                    <div style="clear: both; line-height: 0;">&nbsp;</div>
-
-                    <div class="form-btns">
-                        <a href="#" onClick="ovaPlus();return false;">Continue &#x27a1;</a>
-                        <a href="#" onClick="$('#analyst-details').slideUp(400, function() {$('#source-sel').slideDown()});return false;">&#x2b05; Back</a>
-                    </div>
-                </div>
-            </div>
-            <div id="push"></div>
         </div>
-
-
-
+            </div>
+        </div>
     </body>
 </html>

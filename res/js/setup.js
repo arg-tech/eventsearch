@@ -57,3 +57,23 @@ function ovaReg() {
     }
     return false;
 }
+
+
+
+function populateSchemes() {
+    let dropdown = $('#sselect');
+
+    dropdown.empty();
+
+    dropdown.append('<option value="" disabled selected>Select a Scheme</option>');
+    dropdown.prop('selectedIndex', 0);
+
+    const url = 'http://aifdb.org/schemes/all/';
+
+// Populate dropdown with list of provinces
+    $.getJSON(url, function (data) {
+        $.each(data, function (key, entry) {
+            dropdown.append($('<option></option>').attr('value', entry.name).text(entry.name));
+        })
+    });
+}
