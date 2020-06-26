@@ -379,6 +379,7 @@ function save2db() {
     success: function(response) {
         // some debug could be here
         console.log('success');
+        window.location.href = "searchResults.php";
     },
     error: function(e) {
         // some debug could be here

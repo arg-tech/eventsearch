@@ -4,7 +4,7 @@
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
-        <title>OVA from ARG-tech</title>
+        <title>Graph Search</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="res/css/reset.css">
         <link rel="stylesheet" href="res/css/main.css">
