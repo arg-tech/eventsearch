@@ -4,7 +4,7 @@ services:
   container_name: search-lamp
   build: .
   ports:
-   - "8900:8900"
+   - "8900:80"
   volumes:
   - ./var/www/:/var/www/
 
