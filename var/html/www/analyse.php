@@ -31,7 +31,7 @@
     <body onLoad="init();">
         <div id="head-bar">
             <img src="" onerror="" id="ova-logo" height="48" />
-            <a href="" style="border:0px;margin-left:12px;"><img src="" /></a>
+            <a href="http://www.arg-tech.org/" style="border:0px;margin-left:12px;padding-top:12px;"><img src="res/img/DARG-tech.png" /></a>
             <span class="csep"></span>
             <a href="" onClick="$('#extramenu').toggle(); return false;" class="cbtn" id="emenu" style="display:none;"><div class="cbtn-icon" style="background-image: url('res/img/icon_emenu.png');"></div>Menu</a>
             <a href="" onClick="save2db();return false;" class="cbtn" id="savea" data-step="7" data-intro="<p>Your analysis can be saved locally as either a JSON file, that can be re-opened in OVA, or an image.</p><p>Analyses can also be saved to AIFdb.</p>" data-position="bottom-middle-aligned"><div class="cbtn-icon" style="background-image: url('res/img/icon-savedb.png');"></div>Search AIFdb</a>

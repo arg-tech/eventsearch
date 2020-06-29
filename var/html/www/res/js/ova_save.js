@@ -340,7 +340,7 @@ function loadfromdb(nodeSetID) {
 }
 
 function save2db() {
-
+    window.onbeforeunload = null;
     var json = {}
     var jnodes = [];
     var jedges = [];
@@ -380,7 +380,9 @@ function save2db() {
         // some debug could be here
         console.log(response);
         console.log('success');
+        $(window).unbind();
         window.location.href = "searchResults.php";
+        $(window).unbind();
     },
     error: function(e) {
         // some debug could be here

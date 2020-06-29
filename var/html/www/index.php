@@ -22,6 +22,7 @@
     <body>
         <div id="wrap" onclick="$('#aboutmodal').hide();"><div style='width:0;height:0'>&nbsp;</div>
             <div id="content">
+                <a href="http://www.arg-tech.org/" style="border:0px;margin-left:12px;"><img src="res/img/DARG-tech.png" /></a>
                 <div id="source-sel" class="mdlg">
 
         <form method="GET" action="http://www.aifdb.org/search" id="textsearch">
