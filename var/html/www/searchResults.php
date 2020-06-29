@@ -30,7 +30,8 @@ session_start();
     <?php
 
         $json_data = json_decode($_SESSION['nodesets'], true);
-                    foreach($json_data['nodesets'] as $entry) {
+        $results_array =  explode(',', $json_data['results']);
+                    foreach($results_array as $entry) {
                         echo "<div class='nodeset clearfix'>";
                         echo "<a href='http://www.aifdb.org/argview/".$entry."' class='nodesetimglink'><div class='nodesetimg' style='background-image:url(\"http://www.aifdb.org/diagram/$entry\");'></div></a><h3>Argument Map " .$entry."</h3></div>";
                     }

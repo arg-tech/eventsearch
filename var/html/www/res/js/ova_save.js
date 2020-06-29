@@ -378,6 +378,7 @@ function save2db() {
     data: {aif_json:jstring},
     success: function(response) {
         // some debug could be here
+        console.log(response);
         console.log('success');
         window.location.href = "searchResults.php";
     },
