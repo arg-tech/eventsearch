@@ -1,7 +1,7 @@
 version: '2'
 services:
  lamp:
-  container_name: search-lamp
+  container_name: evsearch-lamp
   build: .
   ports:
    - "8600:80"
