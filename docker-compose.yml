@@ -1,10 +1,10 @@
-version: '2'
+version: '1'
 services:
  lamp:
   container_name: search-lamp
   build: .
   ports:
-   - "8900:80"
+   - "8600:80"
   volumes:
   - ./var/www/:/var/www/
 
