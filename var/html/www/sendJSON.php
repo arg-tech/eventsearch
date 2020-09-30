@@ -3,7 +3,7 @@ ob_start();
 session_start();
 $queryObj->text = $_GET["keys"];
 $queryObj->actor = $_GET["source"];
-$queryObj->time = $_GET["time"];
+$queryObj->circa = $_GET["time"];
 $queryObj->location = $_GET["location"];
 $queryObj->involved = $_GET["object"];
 $queryObj->illustrate = "";
