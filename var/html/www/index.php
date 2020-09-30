@@ -88,7 +88,7 @@
                 <br />
                 <br />
 
-                <div class="sectionrule"><div class="srcontent">Time - &lt; time or &gt; time or &lt;&gt; time ( between two dates)</div></div>
+                <div class="sectionrule"><div class="srcontent">Time - &lt; yyyy-MM-dd HH:mm:ss or &gt; yyyy-MM-dd HH:mm:ss or &lt;&gt; yyyy-MM-dd HH:mm:ss ( between two dates) or keyword - three years</div></div>
                 <input type="text" name="time" class="searchinput" value="" tabindex="10" />
                 <br />
                 <br />
