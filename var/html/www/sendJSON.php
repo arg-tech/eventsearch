@@ -1,9 +1,19 @@
 <?php
+ob_start();
 session_start();
-$url = "http://tomcat.arg.tech/ArgStructSearch/search/query/exec/";
+$queryObj->text = $_GET["keys"];
+$queryObj->actor = $_GET["source"];
+$queryObj->time = $_GET["time"];
+$queryObj->location = $_GET["location"];
+$queryObj->involved = $_GET["object"];
+$queryObj->illustrate = "";
+$json->event = $queryObj;
+$queryJSON = json_encode($json);
+
+$url = "http://tomcat.arg.tech/ArgStructSearch/search/hevy/exec/";
 //Use URL below for testing purposes
-//$url = "http://ptsv2.com/t/zz15o-1592842324/post";
-$content = $_POST['aif_json'];
+//$url = "http://ptsv2.com/t/tfpa8-1601412024/post";
+$content = $queryJSON;
 
 
 $curl = curl_init($url);
@@ -18,8 +28,8 @@ $json_response = curl_exec($curl);
 
 $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-//$test_json = '{"nodesets":["10672", "10671"]}';
-//$tst_jsn_string = json_decode($test_json);
+////$test_json = '{"nodesets":["10672", "10671"]}';
+////$tst_jsn_string = json_decode($test_json);
 $_SESSION["nodesets"] = $json_response;
 
 if ( $status != 200 ) {
@@ -28,8 +38,7 @@ if ( $status != 200 ) {
 
 
 curl_close($curl);
-
-
-echo $json_response;
+header("Location: searchResults.php");
+//echo $json_response;
 
 ?>

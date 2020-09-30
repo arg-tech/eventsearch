@@ -51,38 +51,55 @@
                     <td class="lastTD"><input type="text" class="w4em split-date fill-grid statusformat-l-cc-sp-d-sp-F-sp-Y show-weeks no-today-button" id="date-2" name="date-2" value="" maxlength="4" placeholder="YYYY"/></td>
                     </tr>
                 </table>
+                <input type="hidden" name="s" value="Hypothesising" />
                 <br />
                 <br />
-                <div class="sectionrule"><div class="srcontent">Scheme</div></div>
-                <select name="s" class="searchselect" id="sselect">
-                    <option value="">Select a Scheme</option>
-                    <?php
-                    $url = "http://aifdb.org/schemes/all/";
-                    $json = file_get_contents($url);
-                    $json_data = json_decode($json, true);
-                    foreach($json_data['schemes'] as $entry) {
-                        echo "<option value=".$entry['name']." select>".$entry['name']."</option>";
-                    }
 
-                    ?>
-                </select>
-                <br />
-                <br />
-                <br />
 
             <div class="form-btns">
-            <a href="#" onClick="document.getElementById('textsearch').submit()" data-step="2" data-intro="" data-position="bottom-middle-aligned">Text Search</a>
+            <a href="#" onClick="document.getElementById('textsearch').submit()" data-step="2" data-intro="" data-position="bottom-middle-aligned">Hypothesis Search</a>
             </div>
             </form>
                     <br />
 
                     <hr>
                     <br />
-                    <p>Use graph search</p>
+
                     <br />
+                    <form method="GET" action="sendJSON.php" id="eventsearch">
+                <br />
+                <div class="sectionrule"><div class="srcontent">Keywords</div></div>
+                <input type="text" name="keys" class="searchinput" value="" tabindex="10" id="asrchi" />
+
+                <br />
+                <br />
+                <div class="sectionrule"><div class="srcontent">Source / Agent</div></div>
+                <input type="text" name="source" class="searchinput" value="" tabindex="10" />
+                <br />
+                <br />
+
+                <div class="sectionrule"><div class="srcontent">Location</div></div>
+                <input type="text" name="location" class="searchinput" value="" tabindex="10" />
+                <br />
+                <br />
+
+                <div class="sectionrule"><div class="srcontent">Involved Object</div></div>
+                <input type="text" name="object" class="searchinput" value="" tabindex="10" />
+                <br />
+                <br />
+
+                <div class="sectionrule"><div class="srcontent">Time - &lt; time or &gt; time or &lt;&gt; time ( between two dates)</div></div>
+                <input type="text" name="time" class="searchinput" value="" tabindex="10" />
+                <br />
+                <br />
+
+
+
+
                     <div class="form-btns">
-                        <a href="./analyse.php" onClick="" data-step="1" data-intro="Click here to analyse using the original version of OVA" data-position="bottom-middle-aligned">Graph Search</a>
+                        <a href="#" onClick="document.getElementById('eventsearch').submit()" data-step="1" data-intro="" data-position="bottom-middle-aligned">Event Search</a>
                     </div>
+                         </form>
         </div>
             </div>
         </div>
