@@ -1,4 +1,4 @@
-# ArgSearch
+# EventSearch
 
 This runs as a stripped down version of argsearch and works purely as a user interface seperately from the underlying knowledge repository. 
 
